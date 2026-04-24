@@ -3,4 +3,4 @@ public interface PomoInterface {
    void Stop (); 
    void Reset ();
    double tick (); 
-} 
+}
