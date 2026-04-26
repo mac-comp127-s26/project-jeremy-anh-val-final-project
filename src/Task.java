@@ -9,15 +9,35 @@ public class Task extends GraphicsGroup {
     private Rectangle taskBox;
     private TextField textField;
     private Button button;
+    public double taskX;
+    public double taskY;
+    public double taskWidth;
+    public double taskHeight;
 
-    public Task(){
-        taskBox = new Rectangle(300, 300, 80, 65);
+    public Task(double taskX, double taskY, double taskWidth, double taskHeight){
+        taskBox = new Rectangle(taskX, taskY, taskWidth, taskHeight);
         textField = new TextField();
         button = new Button("Delete");
     }
 
     public Rectangle getTaskBox() {
         return taskBox;
+    }
+
+    public double setTaskX(double taskX) {
+        return taskX;
+    }
+
+    public double setTaskY(double taskY) {
+        return taskY;
+    }
+
+    public double setTaskWidth(double width) {
+        return width;
+    }
+
+    public double setTaskHeight(double height) {
+        return height;
     }
 
     public void setTaskDescription() {
