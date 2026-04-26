@@ -24,12 +24,16 @@ public class Task extends GraphicsGroup {
         textField.setText("Task Description");
     }
 
-    public Button createButton() {
-        button.setPosition(taskBox.getX() + (taskBox.getWidth()/5), taskBox.getY() + (taskBox.getHeight()/5));
-        return button;
+    public double getTaskboxX() {
+        return taskBox.getX();
     }
 
-    public void closeButton() {
+    public double getTaskboxY() {
+        return taskBox.getY();
+    }
 
+    public void setButtonPosition(Button button, Rectangle taskBox) {
+        button.setPosition(taskBox.getX() + (taskBox.getWidth()/5), 
+                           taskBox.getY() + (taskBox.getHeight()/5));
     }
 }
