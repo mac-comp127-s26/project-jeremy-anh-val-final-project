@@ -63,4 +63,12 @@ public class PomoTimer implements PomoInterface {
    }
     return timer;
    }
+
+   public SessionType getCurrentSession() {
+    return currentSession;
+   }
+   public double getTimer() {
+    return timer;
+   }
+
 }
