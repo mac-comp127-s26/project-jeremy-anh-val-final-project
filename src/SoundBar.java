@@ -19,12 +19,12 @@ public class SoundBar {
         //track
         track = new Rectangle(x, y, 200, 8);
         track.setFilled(true);
-        track.setFillColor("lightgray");
+       // track.setFillColor("lightgray");
 
         //knob
         knob = new Ellipse(x, y - 6, 12, 20);
         knob.setFilled(true);
-        knob.setFillColor("blue");
+       // knob.setFillColor("blue");
 
         minX = x;
         maxX = x + 200;
@@ -36,11 +36,11 @@ public class SoundBar {
         canvas.add(group);
 
         //drag to higher/lower sound
-        canvas.onMouseDrag(event -> {
-            if (knob.contains(event.getPosition())) {
-                moveKnob(event.getPosition().getX());
-            }
-        });
+        // canvas.onMouseDrag(event -> {
+        //     if (knob.contains(event.getPosition())) {
+        //         moveKnob(event.getPosition().getX());
+        //     }
+        // });
     }
 
     private void moveKnob(double mouseX) {
