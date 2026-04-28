@@ -1,11 +1,11 @@
 public class PomoTimer implements PomoInterface {
-    private final double work = 25;
-    private final double short_break = 5;
-    private final double long_break = 15;
-    private boolean running = false;
-    private double timer = 0;
+    private final double work = 1500;
+    private final double short_break = 300;
+    private final double long_break = 900;
+    public boolean running = true;
+    public double timer = 0;
     private int workSessions = 0;
-    private SessionType currentSession;
+    public SessionType currentSession;
 
     public enum SessionType {
     WORK,
@@ -69,6 +69,21 @@ public class PomoTimer implements PomoInterface {
    }
    public double getTimer() {
     return timer;
+   }
+
+   public double getDuration () {
+    if (currentSession == SessionType.WORK) {
+        timer -= work;
+        return getTimer();
+    }
+    else if (currentSession == SessionType.SHORT_BREAK) {
+        timer -= short_break;
+        return getTimer();
+    }
+    else {
+        timer -= long_break;
+        return getTimer();
+    }
    }
 
 }
