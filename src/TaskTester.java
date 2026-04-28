@@ -16,20 +16,13 @@ public class TaskTester extends Task {
     public TaskTester(double taskX, double taskY, double taskWidth, double taskHeight) {
         super(taskX, taskY, taskWidth, taskHeight);
         canvas = new CanvasWindow("Task Manager tester", CANVAS_WIDTH, CANVAS_HEIGHT);
-        // task = new Task(100, 100, CANVAS_WIDTH/10, CANVAS_HEIGHT/10);
-        task = new Task(taskX, taskY, taskWidth, taskHeight);
+        createTaskButton = new Button("Add a new task");                //to be implemented
 
-        taskbox = task.getTaskBox();
-        deleteButton = new Button("delete");
-        createTaskButton = new Button("Add a new task");
-
-        task.setButtonPosition(deleteButton, taskbox);
-        canvas.add(taskbox);
-        canvas.add(deleteButton);
-        deleteButton.onClick(() -> {
-            canvas.remove(deleteButton);
-            canvas.remove(taskbox);
-        });
+        Task task1 = new Task(60, 60, 80, 100);
+        Rectangle taskBox1 = TaskManager.createTaskWindow(task1);
+        Button deleteButton1 = TaskManager.createDeleteButton(canvas, task1);
+        canvas.add(taskBox1);
+        canvas.add(deleteButton1);
     }
 
     public static void main(String[] args) {
