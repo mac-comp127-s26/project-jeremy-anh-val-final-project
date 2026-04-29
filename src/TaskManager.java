@@ -1,28 +1,47 @@
 import edu.macalester.graphics.CanvasWindow;
-import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
 
-public class TaskManager extends Task {
-    private static Task task;
-    private static Rectangle taskbox;
+import java.util.ArrayList;
+import java.util.List;
 
-    public TaskManager(double taskX, double taskY, double taskWidth, double taskHeight) {
-        super(taskX, taskY, taskWidth, taskHeight);
+public class TaskManager {
+    private CanvasWindow canvas;
+    private List<Task> tasks;
+    private double nextTaskY = 10;
+    private Button addTaskButton;
+
+    public TaskManager(CanvasWindow canvas) {
+        this.canvas = canvas;
+        this.tasks = new ArrayList<>();
     }
 
-    public static Rectangle createTaskWindow(Task task) {
-        taskbox = task.getTaskBox();
-        return taskbox;
-    }
-
-    public static Button createDeleteButton(CanvasWindow canvas, Task task) {
-        Button deleteButton = new Button("delete");
-        task.setButtonPosition(deleteButton, taskbox);
-        deleteButton.onClick(() -> {
-            canvas.remove(deleteButton);
-            canvas.remove(taskbox);
+    /**
+     * Adds a new task to the list and the canvas.
+     */
+    public void addTask(String description) {
+        Task newTask = new Task(20, nextTaskY, 200, 50);
+        
+        // Setup the delete logic
+        newTask.getDeleteButton().onClick(() -> {
+            removeTask(newTask);
         });
-        return deleteButton;
+
+        tasks.add(newTask);
+        canvas.add(newTask);
+        
+        nextTaskY += 60; // Move the position for the next task
+    }
+
+    /**
+     * Removes the task from the list and the canvas.
+     */
+    private void removeTask(Task task) {
+        canvas.remove(task);
+        tasks.remove(task);
+        // Note: You might want to reposition remaining tasks here
+    }
+
+    public Button getAddTaskButton() {
+        return addTaskButton;
     }
 }
-

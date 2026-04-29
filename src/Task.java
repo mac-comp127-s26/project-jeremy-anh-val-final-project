@@ -1,59 +1,29 @@
-import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.GraphicsGroup;
-import edu.macalester.graphics.GraphicsObject;
 import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
-import edu.macalester.graphics.ui.TextField;
+import java.awt.Color;
 
 public class Task extends GraphicsGroup {
     private Rectangle taskBox;
-    private TextField textField;
-    private Button button;
-    public double taskX;
-    public double taskY;
-    public double taskWidth;
-    public double taskHeight;
+    private Button deleteButton;
+   
 
-    public Task(double taskX, double taskY, double taskWidth, double taskHeight){
-        taskBox = new Rectangle(taskX, taskY, taskWidth, taskHeight);
-        textField = new TextField();
-        button = new Button("Delete");
+    public Task(double x, double y, double width, double height) {
+        // Create the background box
+        taskBox = new Rectangle(0, 0, width, height);
+        taskBox.setStrokeColor(Color.BLACK);
+        add(taskBox);
+
+        // Create the delete button
+        deleteButton = new Button("Delete");
+        deleteButton.setCenter(width / 2, height / 2);
+        add(deleteButton);
+
+        // Position the entire group on the canvas
+        setPosition(x, y);
     }
 
-    public Rectangle getTaskBox() {
-        return taskBox;
-    }
-
-    public double setTaskX(double taskX) {
-        return taskX;
-    }
-
-    public double setTaskY(double taskY) {
-        return taskY;
-    }
-
-    public double setTaskWidth(double width) {
-        return width;
-    }
-
-    public double setTaskHeight(double height) {
-        return height;
-    }
-
-    public void setTaskDescription() {
-        textField.setText("Task Description");
-    }
-
-    public double getTaskboxX() {
-        return taskBox.getX();
-    }
-
-    public double getTaskboxY() {
-        return taskBox.getY();
-    }
-
-    public void setButtonPosition(Button button, Rectangle taskBox) {
-        button.setPosition(taskBox.getX() + (taskBox.getWidth()/5), 
-                           taskBox.getY() + (taskBox.getHeight()/5));
+    public Button getDeleteButton() {
+        return deleteButton;
     }
 }
