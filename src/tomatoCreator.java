@@ -2,6 +2,8 @@ import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.Ellipse;
 import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.Rectangle;
+import edu.macalester.graphics.ui.Button;
+
 import java.awt.Color;
 
 public class tomatoCreator {
@@ -11,8 +13,16 @@ public class tomatoCreator {
     private GraphicsText timeText = new GraphicsText("mm:ss", 240,270);
     private PomoTimer Pomodoro = new PomoTimer();
     private double elapsedTime = 0;
+    //all buttons as variables
+    Button stopTimerButton = new Button("Stop");
+    Button startTimerButton = new Button ("Start");
+    Button resetTimerButton = new Button ("Reset");
+    Button workSetButton = new Button ("Work");
+    Button shortBreakButton = new Button ("Short Break");
+    Button longBreakButton = new Button ("Long Break");
 
     public tomatoCreator () {
+        //all graphical elements to create tomato shape
         Ellipse tomato1 = new Ellipse (150,200,150,150);
         tomato1.setFillColor(tomatoShellColor);
         tomato1.setStroked(false);
@@ -21,10 +31,50 @@ public class tomatoCreator {
         tomatoshell.setStroked(false);
         Rectangle stem = new Rectangle (250, 175, 12, 32);
         stem.setFillColor(tomatoStemColor);
+        //canvas adds all graphical elements
         tomato.add(tomatoshell);
         tomato.add(tomato1);
         tomato.add(stem);
         tomato.add(timeText);
+
+       //stop timer
+        stopTimerButton.setPosition(145, 380);
+        stopTimerButton.onClick(() -> {
+            Pomodoro.Stop();
+        }); 
+        tomato.add(stopTimerButton);
+
+        //start timer
+          startTimerButton.setPosition(213, 380);
+        startTimerButton.onClick(() -> {
+            Pomodoro.Start();
+        });
+        tomato.add(startTimerButton);
+
+        resetTimerButton.setPosition(278, 380);
+        resetTimerButton.onClick(() -> {
+            Pomodoro.Reset();
+        });
+        tomato.add(resetTimerButton);
+        
+        workSetButton.setPosition(105, 420);
+        workSetButton.onClick(() -> {
+            Pomodoro.setCurrentSessiontoWork();
+        });
+        tomato.add(workSetButton);
+
+        shortBreakButton.setPosition(178, 420);
+        shortBreakButton.onClick(() -> {
+            Pomodoro.setCurrentSessiontoBreak1();
+        });
+        tomato.add(shortBreakButton);
+       
+        longBreakButton.setPosition(285, 420);
+        longBreakButton.onClick(() -> {
+            Pomodoro.setCurrentSessiontoBreak2();
+        });
+        tomato.add(longBreakButton);
+      
 
         tomato.animate(dt -> {
             if (Pomodoro.running == true) {
@@ -44,7 +94,6 @@ public class tomatoCreator {
         int seconds = (int) Pomodoro.getTimer () % 60;
         timeText.setText(String.format("%02d:%02d", minutes, seconds));
     }
-
 
     public static void main(String[] args){
         new tomatoCreator();

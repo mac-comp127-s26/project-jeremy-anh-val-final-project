@@ -28,15 +28,17 @@ public class PomoTimer implements PomoInterface {
     }
 
     public void Reset() {
-        running = false;
         if (currentSession == SessionType.WORK) {
             timer = work;
+            timer = 0; 
         } 
         else if (currentSession == SessionType.SHORT_BREAK) {
             timer = short_break;
+            timer = 0; 
         } 
         else {
         timer = long_break;
+        timer = 0; 
         }
     }
 
@@ -67,6 +69,7 @@ public class PomoTimer implements PomoInterface {
    public SessionType getCurrentSession() {
     return currentSession;
    }
+
    public double getTimer() {
     return timer;
    }
@@ -84,6 +87,19 @@ public class PomoTimer implements PomoInterface {
         timer -= long_break;
         return getTimer();
     }
+   }
+
+   public double setCurrentSessiontoWork () {
+        timer = work;
+        return getTimer();
+   }
+   public double setCurrentSessiontoBreak1 () {
+        timer = short_break;
+        return getTimer();
+   }
+   public double setCurrentSessiontoBreak2 () {
+        timer = long_break;
+        return getTimer();
    }
 
 }
