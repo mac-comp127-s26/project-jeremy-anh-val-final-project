@@ -8,6 +8,9 @@ public class TaskManager {
     private CanvasWindow canvas;
     private List<Task> tasks;
     private double nextTaskY = 10;
+    private final double START_Y = 60; // Starting position for the first task
+    private final double SPACING = 10; // Gap between tasks
+    private final double TASK_HEIGHT = 50;
     private Button addTaskButton;
 
     public TaskManager(CanvasWindow canvas) {
@@ -29,7 +32,8 @@ public class TaskManager {
         tasks.add(newTask);
         canvas.add(newTask);
         
-        nextTaskY += 60; // Move the position for the next task
+        // nextTaskY += 60; // Move the position for the next task
+        repositionTasks();
     }
 
     /**
@@ -38,10 +42,22 @@ public class TaskManager {
     private void removeTask(Task task) {
         canvas.remove(task);
         tasks.remove(task);
-        // Note: You might want to reposition remaining tasks here
+        repositionTasks();
     }
 
     public Button getAddTaskButton() {
         return addTaskButton;
+    }
+
+    /**
+     * Loops through the list and moves each task to its new "correct" height.
+     */
+    private void repositionTasks() {
+        double currentY = START_Y;
+
+        for (Task task : tasks) {
+            task.setPosition(20, currentY);
+            currentY += TASK_HEIGHT + SPACING;
+        }
     }
 }

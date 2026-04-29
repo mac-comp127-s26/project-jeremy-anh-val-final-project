@@ -14,16 +14,12 @@ public class TaskTester {
         TaskManager manager = new TaskManager(canvas);
 
         Button createButton = new Button("Add New Task");
-        createButton.setPosition(20, 20);
+        createButton.setPosition(canvas.getWidth() - 150, 20);
 
         createButton.onClick(() -> {
             manager.addTask("New Task");
         });
 
         canvas.add(createButton);
-
-        // Add some initial tasks
-        manager.addTask("Finish Lab");
-        manager.addTask("Buy Milk");
     }
 }
