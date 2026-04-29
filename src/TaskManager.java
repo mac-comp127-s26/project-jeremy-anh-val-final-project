@@ -1,6 +1,7 @@
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.ui.Button;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,11 +23,17 @@ public class TaskManager {
      * Adds a new task to the list and the canvas.
      */
     public void addTask(String description) {
-        Task newTask = new Task(20, nextTaskY, 200, 50);
+        Task newTask = new Task(20, nextTaskY, 300, 75);
         
         // Setup the delete logic
         newTask.getDeleteButton().onClick(() -> {
             removeTask(newTask);
+        });
+
+        // // Setup the checkbox logic
+        newTask.getCheckButton().onClick(() -> {
+            newTask.getCheckBox().setFillColor(Color.GREEN);
+            newTask.getCheckBox().setStrokeColor(Color.GREEN);
         });
 
         tasks.add(newTask);

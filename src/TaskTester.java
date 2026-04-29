@@ -10,7 +10,7 @@ public class TaskTester {
     }
 
     public static void main(String[] args) {
-        CanvasWindow canvas = new CanvasWindow("Task Manager", 400, 600);
+        CanvasWindow canvas = new CanvasWindow("Task Manager", 700, 600);
         TaskManager manager = new TaskManager(canvas);
 
         Button createButton = new Button("Add New Task");

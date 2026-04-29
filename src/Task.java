@@ -8,6 +8,8 @@ public class Task extends GraphicsGroup {
     private Rectangle taskBox;
     private Button deleteButton;
     private GraphicsText textField;
+    private Button checkButton;
+    private Rectangle checkBox;
    
 
     public Task(double x, double y, double width, double height) {
@@ -21,10 +23,21 @@ public class Task extends GraphicsGroup {
         deleteButton.setCenter(width/10, height / 2);
         add(deleteButton);
 
+        // Create a textfield
         textField = new GraphicsText();
         textField.setPosition(taskBox.getWidth() / 2, taskBox.getHeight() / 2);
         textField.setText("Enter a new task...");
         add(textField);
+
+        // Create the checkButton
+        checkButton = new Button("Check");
+        checkButton.setCenter(textField.getX() - deleteButton.getX(), textField.getY() - deleteButton.getY());
+        add(checkButton);
+
+        // Create the checkbox
+        checkBox = new Rectangle(checkButton.getX(), checkButton.getY() + 30, 20, 20);
+        checkBox.setStrokeColor(Color.RED);
+        add(checkBox);
 
         // Position the entire group on the canvas
         setPosition(x, y);
@@ -36,5 +49,13 @@ public class Task extends GraphicsGroup {
 
     public String getTaskText() {
         return textField.getText();
+    }
+
+    public Button getCheckButton() {
+        return checkButton;
+    }
+
+    public Rectangle getCheckBox() {
+        return checkBox;
     }
 }
