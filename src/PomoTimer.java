@@ -1,8 +1,11 @@
+import javax.sound.sampled.*;
+import java.io.File;
+
 public class PomoTimer implements PomoInterface {
     private final double work = 1500;   //25*60 = this number --> get user input 
     private final double short_break = 300;
     private final double long_break = 900;
-    public boolean running = true;
+    public boolean running = false;
     public double timer = 0;
     private int workSessions = 0;
     public SessionType currentSession;
@@ -11,6 +14,19 @@ public class PomoTimer implements PomoInterface {
     WORK,
     SHORT_BREAK,
     LONG_BREAK
+    }
+
+    private void  playSound (String filePath) {
+        try {
+            File soundFile = new File(filePath);
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(soundFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+            clip.start();
+        } catch (Exception e) {
+            System.out.println("Could not play sound: " + filePath);
+            e.printStackTrace();
+        }
     }
 
     public void Start() {
@@ -28,9 +44,8 @@ public class PomoTimer implements PomoInterface {
     }
 
     public void Reset() {
-        running = false;
         if (currentSession == SessionType.WORK) {
-            timer = work;
+            timer = work; 
         } 
         else if (currentSession == SessionType.SHORT_BREAK) {
             timer = short_break;
@@ -44,6 +59,7 @@ public class PomoTimer implements PomoInterface {
         if (running) {
             timer -= 1.0;
             if (timer <= 0) {
+                playSound("/Users/valromano/Documents/GitHub/project-jeremy-anh-val-final-project/res/timerbeep.wav");
                 if (currentSession == SessionType.WORK) {
                     workSessions++;
                 if (workSessions % 4 == 0) {
@@ -67,23 +83,37 @@ public class PomoTimer implements PomoInterface {
    public SessionType getCurrentSession() {
     return currentSession;
    }
+
    public double getTimer() {
     return timer;
    }
 
    public double getDuration () {
     if (currentSession == SessionType.WORK) {
-        timer -= work;
-        return getTimer();
+        return work;
     }
     else if (currentSession == SessionType.SHORT_BREAK) {
-        timer -= short_break;
-        return getTimer();
+        return short_break;
     }
     else {
-        timer -= long_break;
-        return getTimer();
+        return long_break;
     }
+   }
+
+   public double setCurrentSessiontoWork () {
+        currentSession = SessionType.WORK;
+        timer = work;
+        return getTimer();
+   }
+   public double setCurrentSessiontoBreak1 () {
+        currentSession = SessionType.SHORT_BREAK;
+        timer = short_break;
+        return getTimer();
+   }
+   public double setCurrentSessiontoBreak2 () {
+        currentSession = SessionType.LONG_BREAK;
+        timer = long_break;
+        return getTimer();
    }
 
 }

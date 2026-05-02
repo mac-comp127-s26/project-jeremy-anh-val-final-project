@@ -1,28 +1,70 @@
 import edu.macalester.graphics.CanvasWindow;
-import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
 
-public class TaskManager extends Task {
-    private static Task task;
-    private static Rectangle taskbox;
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 
-    public TaskManager(double taskX, double taskY, double taskWidth, double taskHeight) {
-        super(taskX, taskY, taskWidth, taskHeight);
+public class TaskManager {
+    private CanvasWindow canvas;
+    private List<Task> tasks;
+    private double nextTaskY = 10;
+    private final double START_Y = 60; // Starting position for the first task
+    private final double SPACING = 10; // Gap between tasks
+    private final double TASK_HEIGHT = 50;
+    private Button addTaskButton;
+
+    public TaskManager(CanvasWindow canvas) {
+        this.canvas = canvas;
+        this.tasks = new ArrayList<>();
     }
 
-    public static Rectangle createTaskWindow(Task task) {
-        taskbox = task.getTaskBox();
-        return taskbox;
-    }
-
-    public static Button createDeleteButton(CanvasWindow canvas, Task task) {
-        Button deleteButton = new Button("delete");
-        task.setButtonPosition(deleteButton, taskbox);
-        deleteButton.onClick(() -> {
-            canvas.remove(deleteButton);
-            canvas.remove(taskbox);
+    /**
+     * Adds a new task to the list and the canvas.
+     */
+    public void addTask(String description) {
+        Task newTask = new Task(20, nextTaskY, 300, 75);
+        
+        // Setup the delete logic
+        newTask.getDeleteButton().onClick(() -> {
+            removeTask(newTask);
         });
-        return deleteButton;
+
+        // // Setup the checkbox logic
+        newTask.getCheckButton().onClick(() -> {
+            newTask.getCheckBox().setFillColor(Color.GREEN);
+            newTask.getCheckBox().setStrokeColor(Color.GREEN);
+        });
+
+        tasks.add(newTask);
+        canvas.add(newTask);
+        
+        // nextTaskY += 60; // Move the position for the next task
+        repositionTasks();
+    }
+
+    /**
+     * Removes the task from the list and the canvas.
+     */
+    private void removeTask(Task task) {
+        canvas.remove(task);
+        tasks.remove(task);
+        repositionTasks();
+    }
+
+    public Button getAddTaskButton() {
+        return addTaskButton;
+    }
+
+    /**
+     * Loops through the list and moves each task to its new "correct" height.
+     */
+    private void repositionTasks() {
+        double currentY = START_Y;
+
+        for (Task task : tasks) {
+            task.setPosition(20, currentY);
+            currentY += TASK_HEIGHT + SPACING;
+        }
     }
 }
-
