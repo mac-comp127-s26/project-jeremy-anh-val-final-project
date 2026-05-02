@@ -1,5 +1,5 @@
 public class PomoTimer implements PomoInterface {
-    private final double work = 1500;
+    private final double work = 1500;   //25*60 = this number --> get user input 
     private final double short_break = 300;
     private final double long_break = 900;
     public boolean running = true;
