@@ -7,18 +7,18 @@ import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
 import java.awt.Color;
 
- //group.animate(dt -> {
-           // if (Pomodoro.running == true) {
-                //elapsedTime += dt;
-               // if (elapsedTime >= 1.0) {
-               //     Pomodoro.tick();
-                //    elapsedTime = 0;
-                //}
-                //timerTextChange();
-           // }
-        //}
- //);
-public class tomatoCreator {
+// group.animate(dt -> {
+//            if (Pomodoro.running == true) {
+//                 elapsedTime += dt;
+//                if (elapsedTime >= 1.0) {
+//                    Pomodoro.tick();
+//                    elapsedTime = 0;
+//                 }
+//                 timerTextChange();
+//            }
+//         }
+//  );
+public class TomatoCreator {
     private GraphicsGroup group;    
     private final Color tomatoShellColor = new Color(224, 90, 90);
     private final Color tomatoStemColor = new Color(48,130,31);
@@ -33,7 +33,9 @@ public class tomatoCreator {
     Button shortBreakButton = new Button ("Short Break");
     Button longBreakButton = new Button ("Long Break");
 
-    public tomatoCreator () {
+    public TomatoCreator(CanvasWindow canvas) {
+        group = new GraphicsGroup();
+
         //all graphical elements to create tomato shape
         Ellipse tomato1 = new Ellipse (150,200,150,150);
         tomato1.setFillColor(tomatoShellColor);
@@ -88,6 +90,9 @@ public class tomatoCreator {
             Pomodoro.setCurrentSessiontoBreak2();
         });
         group.add(longBreakButton);
+        canvas.add(group);
+        group.setPosition(300, -100);
+        
     
 }
     public void timerTextChange () {
