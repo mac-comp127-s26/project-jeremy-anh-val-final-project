@@ -1,9 +1,9 @@
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.Ellipse;
+import edu.macalester.graphics.FontStyle;
 import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
-
 import java.awt.Color;
 
 public class tomatoCreator {
@@ -31,6 +31,8 @@ public class tomatoCreator {
         tomatoshell.setStroked(false);
         Rectangle stem = new Rectangle (250, 175, 12, 32);
         stem.setFillColor(tomatoStemColor);
+        timeText.setFontSize(18);
+        timeText.setFont("Times New Roman", FontStyle.BOLD, 30); // classic
         //canvas adds all graphical elements
         tomato.add(tomatoshell);
         tomato.add(tomato1);
