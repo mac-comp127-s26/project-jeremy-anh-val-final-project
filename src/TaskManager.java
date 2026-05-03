@@ -30,7 +30,7 @@ public class TaskManager {
             removeTask(newTask);
         });
 
-        // // Setup the checkbox logic
+        // Setup the checkbox logic
         newTask.getCheckButton().onClick(() -> {
             newTask.getCheckBox().setFillColor(Color.GREEN);
             newTask.getCheckBox().setStrokeColor(Color.GREEN);

@@ -2,12 +2,14 @@ import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
+import edu.macalester.graphics.ui.TextField;
 import java.awt.Color;
 
 public class Task extends GraphicsGroup {
     private Rectangle taskBox;
     private Button deleteButton;
-    private GraphicsText textField;
+    // private GraphicsText textField;
+    private TextField textField;
     private Button checkButton;
     private Rectangle checkBox;
    
@@ -23,10 +25,16 @@ public class Task extends GraphicsGroup {
         deleteButton.setCenter(width/10, height / 2);
         add(deleteButton);
 
-        // Create a textfield
-        textField = new GraphicsText();
+        // Create the textfield
+        // textField = new GraphicsText();
+        // textField.setPosition(taskBox.getWidth() / 2, taskBox.getHeight() / 2);
+        // textField.setText("Enter a new task...");
+        // add(textField);
+
+
+        textField = new TextField();
         textField.setPosition(taskBox.getWidth() / 2, taskBox.getHeight() / 2);
-        textField.setText("Enter a new task...");
+        textField.onChange(null);
         add(textField);
 
         // Create the checkButton
