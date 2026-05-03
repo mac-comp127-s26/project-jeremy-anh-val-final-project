@@ -24,7 +24,7 @@ public class TomatoCreator {
     private final Color tomatoStemColor = new Color(48,130,31);
     private GraphicsText timeText = new GraphicsText("mm:ss", 240,270);
     private PomoTimer Pomodoro = new PomoTimer();
-   // private double elapsedTime = 0;
+    private double elapsedTime = 0;
     //all buttons as variables
     Button stopTimerButton = new Button("Stop");
     Button startTimerButton = new Button ("Start");
@@ -92,6 +92,18 @@ public class TomatoCreator {
         group.add(longBreakButton);
         canvas.add(group);
         group.setPosition(300, -100);
+
+        canvas.animate(dt -> {
+            if (Pomodoro.running == true) {
+                elapsedTime += dt;
+                if (elapsedTime >= 1.0) {
+                    Pomodoro.tick();
+                    elapsedTime = 0;
+                }
+        timerTextChange();
+        }
+    }
+);
         
     
 }
