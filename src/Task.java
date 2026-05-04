@@ -38,7 +38,7 @@ public class Task extends GraphicsGroup {
 
         // Create a checkbox
         checkBox = new Rectangle(taskBox.getX() + taskBox.getWidth() - 30, 
-                                 taskBox.getY() + taskBox.getHeight()/2, 
+                                 taskBox.getY() + taskBox.getHeight()/2 - 10, 
                                  20, 
                                  20);
         checkBox.setStrokeColor(Color.RED);
