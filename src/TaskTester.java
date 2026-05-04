@@ -9,17 +9,17 @@ public class TaskTester {
     public TaskTester() {
     }
 
-    public static void main(String[] args) {
-        CanvasWindow canvas = new CanvasWindow("Task Manager", 700, 600);
-        TaskManager manager = new TaskManager(canvas);
+    // public static void main(String[] args) {
+    //     CanvasWindow canvas = new CanvasWindow("Task Manager", 700, 600);
+    //     TaskManager manager = new TaskManager(canvas);
 
-        Button createButton = new Button("Add New Task");
-        createButton.setPosition(canvas.getWidth() - 150, 20);
+    //     Button createButton = new Button("Add New Task");
+    //     createButton.setPosition(canvas.getWidth() - 150, 20);
 
-        createButton.onClick(() -> {
-            manager.addTask("New Task");
-        });
+    //     createButton.onClick(() -> {
+    //         manager.addTask("New Task");
+    //     });
 
-        canvas.add(createButton);
-    }
+    //     canvas.add(createButton);
+    // }
 }

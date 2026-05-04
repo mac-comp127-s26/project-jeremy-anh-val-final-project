@@ -10,8 +10,8 @@ public class TaskManager {
     private List<Task> tasks;
     private double nextTaskY = 10;
     private final double START_Y = 60; // Starting position for the first task
-    private final double SPACING = 10; // Gap between tasks
-    private final double TASK_HEIGHT = 50;
+    private final double SPACING = 30; // Gap between tasks
+    private final double TASK_HEIGHT = 40;
     private Button addTaskButton;
 
     public TaskManager(CanvasWindow canvas) {

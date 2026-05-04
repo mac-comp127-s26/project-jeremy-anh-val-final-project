@@ -10,7 +10,7 @@ public class MainPage {
         TaskManager manager = new TaskManager(canvas);
 
         Button createButton = new Button("Add New Task");
-        createButton.setPosition(canvas.getWidth() - 150, 20);
+        createButton.setPosition(107, 20);
 
         createButton.onClick(() -> {
             manager.addTask("New Task");

@@ -8,42 +8,39 @@ import java.awt.Color;
 public class Task extends GraphicsGroup {
     private Rectangle taskBox;
     private Button deleteButton;
-    // private GraphicsText textField;
     private TextField textField;
     private Button checkButton;
     private Rectangle checkBox;
    
 
     public Task(double x, double y, double width, double height) {
-        // Create the background box
+        // Create a background box
         taskBox = new Rectangle(0, 0, width, height);
         taskBox.setStrokeColor(Color.BLACK);
         add(taskBox);
 
-        // Create the delete button
+        // Create a delete button
         deleteButton = new Button("Delete");
-        deleteButton.setCenter(width/10, height / 2);
+        deleteButton.setCenter(width/10 + 15, height/2 + 15);
         add(deleteButton);
 
-        // Create the textfield
-        // textField = new GraphicsText();
-        // textField.setPosition(taskBox.getWidth() / 2, taskBox.getHeight() / 2);
-        // textField.setText("Enter a new task...");
-        // add(textField);
-
-
+        // Create a text field
         textField = new TextField();
-        textField.setPosition(taskBox.getWidth() / 2, taskBox.getHeight() / 2);
+        textField.setPosition(taskBox.getX() + deleteButton.getWidth() + 40, 
+                              taskBox.getY() + taskBox.getHeight()/2 - 20);
         textField.onChange(null);
         add(textField);
 
-        // Create the checkButton
+        // Create a checkButton
         checkButton = new Button("Check");
-        checkButton.setCenter(textField.getX() - deleteButton.getX(), textField.getY() - deleteButton.getY());
+        checkButton.setPosition(deleteButton.getX(), deleteButton.getY() - 30);
         add(checkButton);
 
-        // Create the checkbox
-        checkBox = new Rectangle(checkButton.getX(), checkButton.getY() + 30, 20, 20);
+        // Create a checkbox
+        checkBox = new Rectangle(taskBox.getX() + taskBox.getWidth() - 30, 
+                                 taskBox.getY() + taskBox.getHeight()/2, 
+                                 20, 
+                                 20);
         checkBox.setStrokeColor(Color.RED);
         add(checkBox);
 
