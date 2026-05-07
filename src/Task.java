@@ -28,7 +28,6 @@ public class Task extends GraphicsGroup {
         textField = new TextField();
         textField.setPosition(taskBox.getX() + deleteButton.getWidth() + 40, 
                               taskBox.getY() + taskBox.getHeight()/2 - 20);
-        textField.onChange(null);
         add(textField);
 
         // Create a checkButton
