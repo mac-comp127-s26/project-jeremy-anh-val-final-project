@@ -21,8 +21,8 @@ public class SoundBar {
         Button buttonS2 = new Button("Nature");
         Button buttonS3 = new Button("Coffee Shop");
         buttonS1.setPosition(50, 100);
-        buttonS2.setPosition(200, 100);
-        buttonS3.setPosition(350, 100);
+        buttonS2.setPosition(150, 100);
+        buttonS3.setPosition(250, 100);
         group.add(buttonS1);
         group.add(buttonS2);
         group.add(buttonS3);
@@ -49,13 +49,13 @@ public class SoundBar {
         new VolumeButton("100%", +2f, sound1, 50, 200, group);
         new VolumeButton("150%", 6f, sound1, 50, 250, group);
 
-        new VolumeButton("50%", -10f, sound2, 200, 150, group);
-        new VolumeButton("100%", +2f, sound2, 200, 200, group);
-        new VolumeButton("150%", 6f, sound2, 200, 250, group);
+        new VolumeButton("50%", -10f, sound2, 150, 150, group);
+        new VolumeButton("100%", +2f, sound2, 150, 200, group);
+        new VolumeButton("150%", 6f, sound2, 150, 250, group);
 
-        new VolumeButton("50%", -10f, sound3, 350, 150, group);
-        new VolumeButton("100%", +2f, sound3, 350, 200, group);
-        new VolumeButton("150%", 6f, sound3, 350, 250, group);
+        new VolumeButton("50%", -10f, sound3, 250, 150, group);
+        new VolumeButton("100%", +2f, sound3, 250, 200, group);
+        new VolumeButton("150%", 6f, sound3, 250, 250, group);
 
         canvas.add(group);
         group.setPosition(x, y);

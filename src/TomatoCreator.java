@@ -91,7 +91,7 @@ public class TomatoCreator {
         });
         group.add(longBreakButton);
         canvas.add(group);
-        group.setPosition(300, -100);
+        group.setPosition(250, -100);
 
         canvas.animate(dt -> {
             if (Pomodoro.running == true) {

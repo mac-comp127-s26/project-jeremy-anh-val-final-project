@@ -6,7 +6,7 @@ public class MainPage {
 
     public static void main(String[] args) throws Exception {
         CanvasWindow canvas = new CanvasWindow("PomoTask", 800, 600);
-        new SoundBar(20, 300, canvas);
+        new SoundBar(380, 280, canvas);
 
         TaskManager manager = new TaskManager(canvas);
 
