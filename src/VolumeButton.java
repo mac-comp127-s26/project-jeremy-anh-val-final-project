@@ -6,15 +6,19 @@ import edu.macalester.graphics.ui.Button;
 public class VolumeButton {
     private Button button;
     private Clip sound;
-    private float volume; 
+    private float volume;
 
+    // constructor creates a volume control button
     public VolumeButton(String label, float volume, Clip sound, double x, double y, GraphicsGroup gr) {
             this.sound = sound;
             this.volume = volume;
+
+            // create and position the button
             button = new Button(label);
             button.setPosition(x, y);
             gr.add(button);
 
+            // adjust volume when button is clicked
             button.onClick(() -> setVolume());
         }
     
@@ -24,9 +28,8 @@ public class VolumeButton {
                 FloatControl volumeControl = (FloatControl) sound.getControl(FloatControl.Type.MASTER_GAIN);
 
                 // Set the volume (e.g., reduce by 10 decibels)
-                //float volume = -10.0f; // A value in decibels
-
                 volumeControl.setValue(volume);
+                
             }
     }
 }
