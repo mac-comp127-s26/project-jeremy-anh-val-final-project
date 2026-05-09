@@ -1,10 +1,8 @@
 import edu.macalester.graphics.*;
-import java.awt.Color;
 import javax.sound.sampled.*;
 import edu.macalester.graphics.ui.Button;
 
 import java.io.File;
-import edu.macalester.graphics.events.*;
 
 
 public class SoundBar {

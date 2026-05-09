@@ -7,17 +7,6 @@ import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
 import java.awt.Color;
 
-// group.animate(dt -> {
-//            if (Pomodoro.running == true) {
-//                 elapsedTime += dt;
-//                if (elapsedTime >= 1.0) {
-//                    Pomodoro.tick();
-//                    elapsedTime = 0;
-//                 }
-//                 timerTextChange();
-//            }
-//         }
-//  );
 public class TomatoCreator {
     private GraphicsGroup group;    
     private final Color tomatoShellColor = new Color(224, 90, 90);

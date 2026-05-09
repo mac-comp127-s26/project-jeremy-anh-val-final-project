@@ -1,6 +1,5 @@
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.ui.Button;
-import java.awt.Color;
 
 public class MainPage {
 

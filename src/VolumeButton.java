@@ -1,7 +1,5 @@
-import java.io.File;
 import javax.sound.sampled.*;
 
-import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.GraphicsGroup;
 import edu.macalester.graphics.ui.Button;
 

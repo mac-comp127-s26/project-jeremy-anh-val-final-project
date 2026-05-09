@@ -1,5 +1,4 @@
 import edu.macalester.graphics.GraphicsGroup;
-import edu.macalester.graphics.GraphicsText;
 import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
 import edu.macalester.graphics.ui.TextField;
