@@ -20,9 +20,6 @@ public class MainPage {
         canvas.add(createButton);
 
         new TomatoCreator(canvas);
-
-
-        
     }
 
     
