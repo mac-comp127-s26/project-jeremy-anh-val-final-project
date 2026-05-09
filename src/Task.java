@@ -4,6 +4,9 @@ import edu.macalester.graphics.ui.Button;
 import edu.macalester.graphics.ui.TextField;
 import java.awt.Color;
 
+/**
+ * This class manages the attributes of a single task
+ */
 public class Task extends GraphicsGroup {
     private Rectangle taskBox;
     private Button deleteButton;

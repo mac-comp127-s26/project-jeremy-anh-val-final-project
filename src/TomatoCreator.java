@@ -7,6 +7,9 @@ import edu.macalester.graphics.Rectangle;
 import edu.macalester.graphics.ui.Button;
 import java.awt.Color;
 
+/**
+ * This class handles the creation of a tomato with a timer in the middle of it
+ */
 public class TomatoCreator {
     private GraphicsGroup group;    
     private final Color tomatoShellColor = new Color(224, 90, 90);
@@ -22,6 +25,10 @@ public class TomatoCreator {
     Button shortBreakButton = new Button ("Short Break");
     Button longBreakButton = new Button ("Long Break");
 
+    /**
+     * Adds a tomato shape with a timer in the middle to the canvas
+     * @param canvas the canvas in which the tomato shape will be added
+     */
     public TomatoCreator(CanvasWindow canvas) {
         group = new GraphicsGroup();
 
@@ -89,13 +96,14 @@ public class TomatoCreator {
                     Pomodoro.tick();
                     elapsedTime = 0;
                 }
-        timerTextChange();
-        }
+            timerTextChange();
+            }
+        });  
     }
-);
-        
-    
-}
+
+    /**
+     * Displays the current time by setting its corresponding text
+     */
     public void timerTextChange () {
         int minutes = (int) Pomodoro.getTimer () /60;
         int seconds = (int) Pomodoro.getTimer () % 60;
