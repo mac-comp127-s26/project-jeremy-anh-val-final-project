@@ -17,7 +17,7 @@ The used white noises are: CALMING RAIN by Liecio, Forest Nature by SoundReality
 
 4. Known issues
 The Pomodoro timer has an issue where if you have already started playing the timer, it won’t reset until you restart the timer which is an odd bug but isn’t detrimental to the program. The user is also currently unable to change the timer’s duration. 
-The user is unable to add more than a certain number of tasks (number TBD) at a time since this number is constrained by the size of the canvas. Moreover, the tasks that the user wants to write cannot exceed a certain number of characters (number TBD) because GraphicsGroup and TextField don’t allow the programmers to change the size of the textfield. 
+The user is unable to see more than a certain number of tasks at a time since this number is constrained by the size of the canvas. Moreover, the tasks that the user wants to write cannot exceed a certain length because GraphicsGroup and TextField don’t allow the programmers to change the size of the textfield. 
 The volume changer only has three options of 50%, 100%, and 150% instead of having a volume bar with a knob that allows easier volume setting.
 
 5. Societal impact
