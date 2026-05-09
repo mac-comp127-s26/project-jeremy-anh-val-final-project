@@ -2,7 +2,8 @@
 
 1. Project Title: PomoTask
 2. Authors: Jeremy Rafidimanana, Val Tlahuice, Anh Ngoc Nguyen
-3. Project description
+3. Presentation Video: https://drive.google.com/file/d/1sgWguDVa0sm38SdPk_8x1z6HYIe1yEBr/view?usp=sharing 
+4. Project description
 
 Our project is a task manager that provides the user different features such as playing white noise, using the Pomodoro studying method, and managing tasks.
 
@@ -29,7 +30,7 @@ Currently, there is no way to control the number of continuous working sessions 
 Our program only has a single productivity style, which may disadvantage users with ADHD, anxiety, disabilities, or different working patterns.
 
 - Unintended consequences: 
-Someone with sensitivity to noise might be unintentionally hurt when the alarm goes off after the timer goes off. There is no current warning when the alarm beep sounds. And no current way to turn the alarm sound off or deafen it other than turning off the volume on your computer itself. The user might currently believe that their tasks are finished when they aren’t by mistakenly clicking check and not being able to uncheck. 
+Someone with sensitivity to noise might be unintentionally hurt when the alarm goes off after the timer goes off. There is no current warning when the alarm beep sounds. And no current way to turn the alarm sound off or deafen it other than turning off the volume on your computer itself. The user might currently believe that their tasks are finished when they aren’t by mistakenly clicking check and not being able to uncheck.
 
 
 
