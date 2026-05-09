@@ -5,6 +5,9 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class manages the adding, deleting and positioning of the elemets of a task
+ */
 public class TaskManager {
     private CanvasWindow canvas;
     private List<Task> tasks;
